@@ -35,13 +35,11 @@
 			$('#btn-submit').on('click', function (e) {
 		    	e.preventDefault();
 
-		    	 var guessNumber = parseFloat($('#guessNumber').val());
-
+		    	var guessNumber = parseFloat($('#guessNumber').val());
 			    if (isNaN(guessNumber) || guessNumber < 0 || guessNumber > 100) {
 			        $('#result').html('請輸入0-100');
 			        return;
 			    }
-
 
 				times++;
 				$('#tryTime').html("You have tried " + times +" times");
