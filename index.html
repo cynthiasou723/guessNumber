@@ -14,7 +14,7 @@
 		<div id="page-guess-number" data-role="page">
 			<div data-role="content">
 				<label for="guessNumber">Guess a Number</label>
-				<input type="text" name="guessNumber" id="guessNumber" value="" >
+				<input type="tel" name="guessNumber" id="guessNumber" value="" >
 	        	<br>
 
 	        	<button class="ui-btn ui-shadow" id="btn-submit">Submit</button>
@@ -22,7 +22,7 @@
 
 	        	<div id="tryTime"></div>
 	        	<br>
-	        	
+
 	        	<div id="result"></div>
 			</div>
 		</div>
@@ -36,9 +36,9 @@
 			$('#btn-submit').on('click', function (e) {
 		    	e.preventDefault();
 
-		    	var guessNumber = parseFloat($('#guessNumber').val());
+		    	var guessNumber = parseInt($('#guessNumber').val());
 			    if (isNaN(guessNumber) || guessNumber < 0 || guessNumber > 100) {
-			        $('#result').html('請輸入0-100');
+			        $('#result').html('請輸入0-100的數字');
 			        return;
 			    }
 
