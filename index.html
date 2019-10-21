@@ -14,7 +14,7 @@
 		<div id="page-bmi" data-role="page">
 			<div data-role="content">
 				<label for="guessNumber">Guess a Number</label>
-	        	<input type="range" name="guessNumber" id="guessNumber" value="" min="0" max="100" step="1" >
+				<input type="text" name="guessNumber" id="guessNumber" value="" >
 
 	        	<br>
 
@@ -35,13 +35,20 @@
 			$('#btn-submit').on('click', function (e) {
 		    	e.preventDefault();
 
+		    	 var guessNumber = parseFloat($('#guessNumber').val());
+
+			    if (isNaN(guessNumber) || guessNumber < 0 || guessNumber > 100) {
+			        $('#result').html('請輸入0-100');
+			        return;
+			    }
+
+
 				times++;
 				$('#tryTime').html("You have tried " + times +" times");
 
-				console.log($('#guessNumber').val());	
-				if ($('#guessNumber').val() > randomNumber){
+				if (guessNumber > randomNumber){
 					$('#result').html("Try a smaller number");
-				}else if ($('#guessNumber').val() < randomNumber){
+				}else if (guessNumber < randomNumber){
 					$('#result').html("Try a larger number");
 				}else{
 					$('#result').html("bingo!");
